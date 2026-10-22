@@ -13,11 +13,11 @@ import json
 
 from ase.io import read, write
 
-from rmc_dft.config import Config
-from rmc_dft.vasp.vasp_incar import VaspIncar
-from rmc_dft.vasp.vasp_kpoints import VaspKpoints
-from rmc_dft.vasp.vasp_log import VaspLog
-from rmc_dft.vasp.util.poscar2cfg import (
+from vasp_util.config import Config
+from vasp_util.vasp_incar import VaspIncar
+from vasp_util.vasp_kpoints import VaspKpoints
+from vasp_util.vasp_log import VaspLog
+from vasp_util.util.poscar2cfg import (
     vasp2cfg,
     contcar2cfg,
     poscar2cfg,
@@ -25,11 +25,11 @@ from rmc_dft.vasp.util.poscar2cfg import (
 )
 
 # util
-from rmc_dft.vasp.util.copy_contcar_to_vasp import copy_contcar_to_vasp
-from rmc_dft.vasp.util.copy_vasp_to_poscar import copy_vasp_to_poscar
-from rmc_dft.vasp.util.xdatcar2poscar import xdatcar2poscar
-from rmc_dft.vasp.util.ensure_vasp5_format import ensure_vasp5_format
-from rmc_dft.vasp.util.make_potcar import VaspPotcarBuilder
+from vasp_util.util.copy_contcar_to_vasp import copy_contcar_to_vasp
+from vasp_util.util.copy_vasp_to_poscar import copy_vasp_to_poscar
+from vasp_util.util.xdatcar2poscar import xdatcar2poscar
+from vasp_util.util.ensure_vasp5_format import ensure_vasp5_format
+from vasp_util.util.make_potcar import VaspPotcarBuilder
 
 from x_logger import XLogger
 
