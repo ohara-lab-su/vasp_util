@@ -2,11 +2,12 @@
 """
 K.NAKADA, kengo.nakada@gmail.com
 """
+
 import os
 from typing import Any, Dict, List, Optional, Union, Tuple, Callable, Sequence
 from pymatgen.io.vasp.inputs import Incar
 
-from rmc_dft.config import Config
+from vasp_util.config import Config
 from x_logger import XLogger
 
 

@@ -11,7 +11,7 @@ from numpy import floating
 from typing import List, Tuple, Optional, Any
 
 
-from rmc_dft.vasp.vasp_poscar import VaspPoscar
+from vasp_util.vasp_poscar import VaspPoscar
 from x_logger import XLogger
 
 
