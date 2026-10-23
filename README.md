@@ -3,26 +3,46 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/ohara-lab-su/vasp_util/blob/main/README.md)
 [![ja](https://img.shields.io/badge/lang-ja-yellow.svg)](https://github.com/ohara-lab-su/vasp_util/blob/main/README.ja.md)
 
-Yet another tool for making VASP easier to use, among the countless tools already out there.
+Yet another tool for making VASP easier to use, among the many such tools already available.
 
-This library was originally part of the [RMC-DFT](https://github.com/ohara-lab-su/rmc_dft/) package. It brings together VASP-related utilities that were used internally there and makes them available as a standalone library.
+This package originated as a collection of VASP-related utilities used within [RMC-DFT](https://github.com/ohara-lab-su/rmc_dft/). They were subsequently extracted into a standalone library (branched from version 0.7.10).
 
-In many cases, pymatgen or ASE may be more convenient. Still, there are plenty of situations where having my own tools works better for me, so here I am, building another one.
+ASE and pymatgen provide extensive functionality, ranging from structure generation and conversion to various forms of analysis. However, simply reading a structure from a VASP input or output file and converting it into another representation is not particularly difficult to implement independently. The more important question, in my view, is what analytical capabilities are available for the structures and calculation results once they have been extracted.
 
-## Background
+For this reason, rather than depending on a large library solely for structure input and output, the approach here is to organize VASP file operations into small, independent components and make it possible to add and reuse analytical routines as needed. Of course, the goal is not to replace the advanced capabilities offered by ASE or pymatgen.
 
-Around 2010–2015, I developed [sae](https://github.com/ohara-lab-su/sae), a fairly comprehensive collection of tools for crystal structures, including VASP-related functionality. Much of the VASP know-how I accumulated back then forms the basis of my current tools.
+## Development Background
 
-However, as I kept adding features, sae grew rather large. Combined with my limited understanding of Python at the time, this led to various design problems.
+From around 2010 to 2015, I developed [sae](https://github.com/ohara-lab-su/sae), a general-purpose toolkit for crystal structures, including VASP-related functionality. The experience and knowledge accumulated through that work form the basis of the current tools.
 
-Meanwhile, pymatgen and ASE had become remarkably useful. As a result, sae gradually lost much of its reason for existing and ended up sitting on the shelf for years.
+However, as more features were added, sae grew excessively large. My limited understanding of Python at the time also contributed to a number of design problems.
 
-Even so, whenever I developed new tools involving VASP, I often found myself wishing I had something like sae—especially when I simply wanted to manipulate structures described in POSCAR files.
+Meanwhile, pymatgen and ASE had become extremely capable, further reducing the rationale for maintaining sae. As a result, the project was shelved for many years.
 
-I worked around this by implementing similar functionality separately in each tool, but that eventually left me with nearly identical code scattered across multiple projects.
+Nevertheless, while developing other tools that use VASP, I repeatedly encountered situations—particularly when manipulating structures described in POSCAR files—where something like sae would have been useful.
 
-Redesigning sae from scratch would have been a substantial undertaking. Instead, I started small, creating a minimal set of classes for handling VASP-related operations within RMC-DFT.
+I worked around this by implementing similar routines separately in individual tools, but this eventually led to duplicated code scattered across multiple projects.
 
-Those classes have now been extracted into a standalone package, `vasp_util`, so they can be reused more easily in other projects.
+Redesigning sae in its entirety would have required substantial effort. Instead, I started by developing a small set of classes for VASP-related operations within RMC-DFT, keeping the functionality limited to what was actually needed.
 
-In the end, this may look much like other libraries already available. Nevertheless, I hope to gradually consolidate the functionality I have repeatedly implemented across my various tools into this package.
+These classes have now been extracted into `vasp_util`, a standalone package that can be reused by other tools.
+
+In the end, this may have become another library similar to those already available. Even so, I hope to gradually consolidate the routines that have repeatedly been implemented in separate tools into this package.
+
+## Current Components and Scope
+
+The package currently covers reading lattice and coordinate data from POSCAR files, coordinate transformations, analysis of interatomic distances, neighboring atoms, and atomic displacements under periodic boundary conditions, editing INCAR and KPOINTS files, assembling POTCAR files, extracting energies, forces, and magnetic moments from OUTCAR files, and managing VASP execution and logs.
+
+Given its origins in RMC-DFT, the package also covers transferring structural data between RMC and VASP. At this stage, the aim is not to build a comprehensive crystal-structure analysis environment, but to consolidate functions that have proved useful in actual calculations and analyses.
+
+For examples and API details, see the [documentation](https://ohara-lab-su.github.io/vasp_util/).
+
+## Implemented API and Manuals
+
+The classes, methods, and top-level functions in the current implementation have been reviewed against the source code. A [user guide](https://ohara-lab-su.github.io/vasp_util/en/usage.html) and an [API Reference](https://ohara-lab-su.github.io/vasp_util/en/api_reference.html) are available. The API Reference combines module-specific descriptions with signatures and docstrings generated automatically by Sphinx autodoc.
+
+Regarding dependencies, although the package provides its own structure-handling and analysis functionality, parts of the existing implementation do use ASE and pymatgen. The design should therefore not be interpreted as avoiding these libraries entirely.
+
+### API Coverage and Updates
+
+`docs/api_reference.md` provides access to the classes, methods, and functions from all ten source files supplied for the documentation update. Each entry includes the implementation signature and existing docstring, as well as extracted return expressions, conditional branches, exceptions, calls, and source line numbers. These pages can be regenerated with `docs/generate_api.py`. Information obtained through static source-code analysis should be distinguished from guarantees about runtime behavior.

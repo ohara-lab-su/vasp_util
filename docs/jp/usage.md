@@ -493,4 +493,14 @@ if __name__ == "__main__":
 
 ## 11. API リファレンスとの対応
 
-詳細なシグネチャと docstring は [API リファレンス](api/modules) に掲載します。主な実装モジュールは `vasp_util.vasp`、`vasp_util.vasp_incar`、`vasp_util.vasp_kpoints`、`vasp_util.vasp_poscar`、`vasp_util.vasp_poscar_analyzer`、`vasp_util.vasp_outcar`、`vasp_util.vasp_potcar`、`vasp_util.vasp_log`、`vasp_util.config` です。利用例と実装が食い違う場合は、実際にインストールしたバージョンのソースを優先してください。
+詳細なシグネチャと docstring は [API リファレンス](api_reference.md) に掲載します。主な実装モジュールは `vasp_util.vasp`、`vasp_util.vasp_incar`、`vasp_util.vasp_kpoints`、`vasp_util.vasp_poscar`、`vasp_util.vasp_poscar_analyzer`、`vasp_util.vasp_outcar`、`vasp_util.vasp_potcar`、`vasp_util.vasp_log`、`vasp_util.config` です。利用例と実装が食い違う場合は、実際にインストールしたバージョンのソースを優先してください。
+
+
+## 全メソッド・関数の参照先
+
+使用例で紹介していないメソッドも含め、添付された実装の全クラス・関数の一覧と自動生成リファレンスを [API Reference](api_reference) に収録しています。
+
+
+## 全 API の確認と保守
+
+本ページは利用例です。全メソッドのシグネチャ、既存の説明、実装から抽出した return 式・例外・条件分岐は [API Reference](api_reference.md) を参照してください。API ページは `docs/generate_api.py` により再生成します。
