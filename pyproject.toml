@@ -1,38 +1,32 @@
 [build-system]
-requires = ["setuptools>=71.0", "coloredlogs"]
+requires = ["setuptools>=71.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "vasp-util"
 version = "0.0.0"
-
-description = "rmc_dft is a Python package for performing Reverse Monte Carlo modeling and ab initio molecular dynamics / relaxation using VASP code."
+description = "Utilities for working with VASP input files and crystal structures."
 authors = [
     { name = "Kengo NAKADA", email = "kengo.nakada@email.com" },
     { name = "Kentaro Kobayashi", email = "kobayashi@mat.shimane-u.ac.jp" }
 ]
 readme = "README.md"
-# requires-python = ">=3.8"
 requires-python = ">=3.10"
 dependencies = [
-    # my-modules
-    #"x_logger",
     "xlogger-py",
     "packmol-util",
     "rmc-util",
-    # fnc
     "pymatgen",
-    # basic
-    "dataclasses",
     "coloredlogs",
     "colorlog",
-    "pytest",
-    "pytest-asyncio",
     "pyyaml",
     "toml",
-    # "grpcio",
-    "nest_asyncio",
-    # pages
+    "nest_asyncio"
+]
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-asyncio"]
+docs = [
     "sphinx",
     "myst-parser",
     "sphinx-autobuild",
@@ -43,9 +37,6 @@ dependencies = [
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
-
-# ここでpytestのiniと同じようにオプションが書ける
-# 例えばテストマーク、フィルタ、カバレッジなども追記可能
 
 [tool.black]
 line-length = 88
