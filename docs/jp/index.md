@@ -1,6 +1,6 @@
 # vasp_util — 日本語ドキュメント
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](../en/index.md) [![ja](https://img.shields.io/badge/lang-ja-yellow.svg)](index.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](../en/index.html) [![ja](https://img.shields.io/badge/lang-ja-yellow.svg)](index.html)
 
 [GitHub](https://github.com/ohara-lab-su/vasp_util) · [日本語 README](https://github.com/ohara-lab-su/vasp_util/blob/main/README.ja.md)
 
