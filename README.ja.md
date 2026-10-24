@@ -1,5 +1,8 @@
 # vasp_util
 
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/ohara-lab-su/vasp_util/blob/main/README.md)
+[![ja](https://img.shields.io/badge/lang-ja-yellow.svg)](https://github.com/ohara-lab-su/vasp_util/blob/main/README.ja.md)
+
 世の中に山のように存在する、VASPを便利に使うためのツールの一つです。
 
 もともとは [RMC-DFT](https://github.com/ohara-lab-su/rmc_dft/) の内部で使っていた VASP 関連の処理を、ほかのプログラムからも利用できるように切り出したものです（0.7.10 から分岐）。
