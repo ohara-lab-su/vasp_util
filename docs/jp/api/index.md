@@ -3,5 +3,5 @@
 ```{toctree}
 :maxdepth: 2
 
-_generated/modules
+generated/modules
 ```

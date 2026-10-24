@@ -1,7 +1,7 @@
-# Python API reference
+# Python API Reference
 
 ```{toctree}
 :maxdepth: 2
 
-_generated/modules
+generated/modules
 ```
