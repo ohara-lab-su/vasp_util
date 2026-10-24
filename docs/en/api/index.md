@@ -1,7 +1,7 @@
-# API Reference
+# Python API reference
 
 ```{toctree}
 :maxdepth: 2
 
-generated/vasp_util
+_generated/modules
 ```
