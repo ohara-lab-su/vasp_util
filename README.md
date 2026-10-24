@@ -1,5 +1,8 @@
 # vasp_util
 
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/ohara-lab-su/vasp_util/blob/main/README.md)
+[![ja](https://img.shields.io/badge/lang-ja-yellow.svg)](https://github.com/ohara-lab-su/vasp_util/blob/main/README.ja.md)
+
 Yet another collection of tools for working with VASP.
 
 This package grew out of the VASP-related routines used in [RMC-DFT](https://github.com/ohara-lab-su/rmc_dft/) and was separated into a reusable library (branched from 0.7.10).
