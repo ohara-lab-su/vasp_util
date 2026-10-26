@@ -8,6 +8,7 @@ from vasp_util.vasp_kpoints import VaspKpoints
 from vasp_util.vasp_potcar import VaspPotcarBuilder
 from vasp_util.vasp_log import VaspLog
 from vasp_util.vasp_outcar import VaspOutcar
+from vasp_util.config import Config
 
 from vasp_util.vasp_poscar import VaspPoscar
 from vasp_util.vasp_poscar_analyzer import VaspPoscarAnalyzer
