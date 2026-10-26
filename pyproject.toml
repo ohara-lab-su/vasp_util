@@ -21,12 +21,9 @@ dependencies = [
     "colorlog",
     "pyyaml",
     "toml",
-    "nest_asyncio"
-]
-
-[project.optional-dependencies]
-test = ["pytest", "pytest-asyncio"]
-docs = [
+    "nest_asyncio",
+    "pytest",
+    "pytest-asyncio",
     "sphinx",
     "myst-parser",
     "sphinx-autobuild",
@@ -34,6 +31,7 @@ docs = [
     "sphinxcontrib-napoleon",
     "linkify-it-py"
 ]
+
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
