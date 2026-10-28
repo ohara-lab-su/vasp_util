@@ -77,6 +77,37 @@ preservation, exceptions, and return values—not merely function names. In part
 `cell_geometry.minimum_image_vector` compares Cartesian lengths. These implementations need not agree for skewed cells;
 this is a limitation of the current code, not a claim of a distinct physical definition.
 
+## Execution-script architecture in v0.0.7
+
+The principal architectural change is the **separation of reusable execution logic from user-editable calculation parameters**. Previously, complete calculation scripts were copied from `examples/` or similar directories into each working directory. This also duplicated execution logic, leaving old copies behind after fixes or package upgrades.
+
+The intended division of responsibilities is:
+
+- **Library (`src/vasp_util/`)**: reusable VASP file I/O, structural analysis, and related APIs. The existing library module `vasp.py` belongs here.
+- **Runners (`src/vasp_util/runners/`)**: calculation preparation, execution, and result handling that users normally do not edit. A runner `vasp.py` has its own namespace to avoid collision with the existing library `vasp.py`.
+- **Editable templates (repository-root `scripts/`)**: `*_init.py` and similar parameter/configuration files, intended for local modification. They invoke runner functionality instead of carrying independent copies of the execution implementation.
+- **Installer (`src/vasp_util/install.py`)**: copies packaged editable templates into the current working directory. It does not execute VASP.
+
+This allows calculation parameters to remain local while execution logic is maintained through package upgrades. The same separation is intended for `rmc_util`; `rmc_dft` can then act as a thin integration layer invoking the two packages, reducing duplicated scripts and version mismatches in standalone and coupled workflows.
+
+**Implementation status:** the install command and template packaging configuration are included in v0.0.7. The supplied files do not establish whether migration to `runners/` or packaging of specific `*_init.py` templates has been completed. The structure above describes the agreed architecture, not unverified completed work.
+
+### Installing editable templates
+
+After installing the package, run the following in the calculation working directory:
+
+```bash
+vasp_util install
+```
+
+The `.py` and `.sh` files packaged from the repository-root `scripts/` directory are copied into the **current working directory**. Existing files are skipped. To overwrite them explicitly:
+
+```bash
+vasp_util install --force
+```
+
+Edit the copied `*_init.py` or other parameter templates locally. Package upgrades do not update existing local copies. `--force` can overwrite local modifications. Moving execution logic into runners does not make locally edited templates auto-updating.
+
 ## Notes on use
 
 Some POSCAR/CFG conversion paths assume particular line layouts and Direct coordinates. Displacements between MD
