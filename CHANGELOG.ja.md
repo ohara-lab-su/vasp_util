@@ -3,6 +3,14 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/ohara-lab-su/vasp_util/blob/main/CHANGELOG.md)
 [![ja](https://img.shields.io/badge/lang-ja-yellow.svg)](https://github.com/ohara-lab-su/vasp_util/blob/main/CHANGELOG.ja.md)
 
+## v0.0.8 - 2026-10-28
+
+- 編集可能な起動スクリプト `scripts/vasp.py` を追加。`Config`、ログ、VASP入力設定を初期化し、`run_vasp(...)` に全引数を明示して渡す。
+- `src/vasp_util/runners/run_vasp.py` に実行関数を配置し、元の単独実行用 `if __name__ == "__main__":` を保持し、開発時の実行例を残す。
+- 提供された `rmc_vasp_init.py` の計算条件を保持して `scripts/vasp_init.py` を追加。単独実行用の `if __name__ == "__main__":` を保持。
+- 旧スクリプトの富岳向けキャッシュ対策は編集可能な起動スクリプトに維持。
+- READMEの日本語・英語版を更新。`vasp_util install` / `--force` の動作は維持。バージョンは0.0.8。
+
 ## v0.0.7 - 2026-10-28
 
 ### 実行系の構成方針（主要変更）
