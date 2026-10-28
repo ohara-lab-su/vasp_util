@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vasp-util"
-version = "0.0.8"
+version = "0.0.9"
 description = "Utilities for working with VASP input files and crystal structures."
 authors = [
     { name = "Kengo NAKADA", email = "kengo.nakada@email.com" },

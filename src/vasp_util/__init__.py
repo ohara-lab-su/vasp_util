@@ -13,6 +13,8 @@ from vasp_util.config import Config
 from vasp_util.vasp_poscar import VaspPoscar
 from vasp_util.vasp_poscar_analyzer import VaspPoscarAnalyzer
 
+from vasp_util.runners.run_vasp import run_vasp
+
 # from .vasp import Vasp
 # from .collect_result import VaspLog
 # from . import util
