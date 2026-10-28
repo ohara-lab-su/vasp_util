@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vasp-util"
-version = "0.0.6"
+version = "0.0.7"
 description = "Utilities for working with VASP input files and crystal structures."
 authors = [
     { name = "Kengo NAKADA", email = "kengo.nakada@email.com" },
@@ -41,3 +41,9 @@ line-length = 88
 
 [tool.isort]
 profile = "black"
+
+[project.scripts]
+vasp_util = "vasp_util.install:main"
+
+[tool.setuptools.data-files]
+"share/vasp_util/scripts" = ["scripts/*.py", "scripts/*.sh"]
