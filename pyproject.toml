@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "vasp-util"
 version = "0.0.9"
-description = "Utilities for working with VASP input files and crystal structures."
+description = "Python utilities for VASP input preparation, atomic structure manipulation, and conversion of simulation files."
 authors = [
     { name = "Kengo NAKADA", email = "kengo.nakada@email.com" },
     { name = "Kentaro Kobayashi", email = "kobayashi@mat.shimane-u.ac.jp" }
@@ -47,3 +47,9 @@ vasp_util = "vasp_util.install:main"
 
 [tool.setuptools.data-files]
 "share/vasp_util/scripts" = ["scripts/*.py", "scripts/*.sh"]
+
+[project.urls]
+Homepage = "https://ohara-lab-su.github.io/vasp_util/"
+Documentation = "https://ohara-lab-su.github.io/vasp_util/"
+Repository = "https://github.com/ohara-lab-su/vasp_util"
+Issues = "https://github.com/ohara-lab-su/vasp_util/issues"
